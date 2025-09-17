@@ -1,0 +1,41 @@
+---
+---
+<div class="game-controls">
+  <button class="control-btn reset-btn bg-accent shadow-1 radius-20" id="resetButton">
+    <span class="typo-chip-on">Reset Game</span>
+  </button>
+</div>
+
+<style>
+.game-controls {
+  padding: 0 24px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.control-btn {
+  height: 50px;
+  padding: 0 24px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+}
+
+.reset-btn {
+  background: var(--color-ef2a39);
+  color: var(--color-ffffff);
+}
+</style>
+
+<script>
+document.getElementById('resetButton')?.addEventListener('click', () => {
+  // Create and dispatch a custom event that GameBoard will listen for
+  const resetEvent = new CustomEvent('resetGame');
+  document.dispatchEvent(resetEvent);
+});
+</script>
